@@ -35,13 +35,15 @@ public class MyFragmentManager {
             @Override
             public void onFragmentAttached(FragmentManager fm, Fragment f, Context context) {
                 super.onFragmentAttached(fm, f, context);
-                myFragmentManager.fragments.add(f);
+                if (f.getId() == myFragmentManager.mContainerId)
+                    myFragmentManager.fragments.add(f);
             }
 
             @Override
             public void onFragmentDetached(FragmentManager fm, Fragment f) {
                 super.onFragmentDetached(fm, f);
-                myFragmentManager.fragments.remove(f);
+                if (f.getId() == myFragmentManager.mContainerId)
+                    myFragmentManager.fragments.remove(f);
             }
 
 

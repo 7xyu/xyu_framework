@@ -8,7 +8,6 @@ import android.text.TextUtils;
 import android.text.style.CharacterStyle;
 import android.text.style.ForegroundColorSpan;
 
-import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -306,61 +305,4 @@ public class StringUtils {
         Matcher m = p.matcher(str);
         return m.replaceAll("").trim();
     }
-
-    /***
-     * 转换性别
-     * @param sexCocd  性别代码
-     * @return
-     */
-    public static String convertSext(String sexCocd) {
-        if (isEquals(sexCocd, "1")) {
-            return "男";
-        } else if (isEquals(sexCocd, "2")) {
-            return "女";
-        } else if (isEquals(sexCocd, "3")) {
-            return "未知";
-        }
-        return "";
-    }
-
-    public static String convertReport(String sexCocd) {
-        if (isEquals(sexCocd, "1")) {
-            return "垃圾广告";
-        } else if (isEquals(sexCocd, "2")) {
-            return "色情低俗";
-        } else if (isEquals(sexCocd, "3")) {
-            return "其他";
-        }
-        return "";
-    }
-
-    public static String report(String sexCocd) {
-        if (isEquals(sexCocd, "1")) {
-            return "举报";
-        }
-        return "";
-    }
-
-    public static String readNum(String num) {
-        BigDecimal bigDecimal = new BigDecimal(num);
-        BigDecimal bigw = new BigDecimal(10000);
-        if (bigDecimal.compareTo(bigw) >= 0) {
-            BigDecimal divide = bigDecimal.divide(bigw, 1, BigDecimal.ROUND_HALF_UP);
-            return divide.toString() + "万";
-        }
-        return num;
-    }
-
-    public static String cutText(String text, int cut) {
-        if (text.length() <= cut) return text;
-        return text.substring(0, cut) + "...";
-    }
-
-    public static String secretPhone(String phone) {
-        if (TextUtils.isEmpty(phone) || phone.length() != 11) return phone;
-        String head = phone.substring(0, 3);
-        String foot = phone.substring(7, phone.length());
-        return head + "****" + foot;
-    }
-
 }

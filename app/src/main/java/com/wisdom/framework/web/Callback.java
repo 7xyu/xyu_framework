@@ -41,8 +41,8 @@ public abstract class Callback<T> extends Subscriber<T> {
     public void onError(Throwable e) {
         e.printStackTrace();
         LogUtils.d("RetrofitLog", "是否主动取消请求" + isUnsubscribed());
-        if (isUnsubscribed()) return;//主动取消的话，不需要走错误流程
         onEnd();
+        if (isUnsubscribed()) return;//主动取消的话，不需要走错误流程
         onfail(e);
     }
 

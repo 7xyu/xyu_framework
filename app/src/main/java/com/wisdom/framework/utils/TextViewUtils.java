@@ -95,7 +95,7 @@ public class TextViewUtils {
      * @return
      */
     public static boolean isEmpty(TextView tv) {
-        return TextUtils.isEmpty(fromTv(tv));
+        return com.blankj.utilcode.utils.StringUtils.isSpace(fromTv(tv));
     }
 
     /**
