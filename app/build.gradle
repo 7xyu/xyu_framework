@@ -1,0 +1,74 @@
+apply plugin: 'com.android.library'
+
+apply plugin: 'com.github.dcendents.android-maven'
+
+group='com.github.7xyu'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    /*单元测试*/
+    androidTestCompile(rootProject.ext.dependencies.espresso, {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile rootProject.ext.dependencies.junit
+    /*support*/
+    compile rootProject.ext.dependencies.appcompat
+    compile rootProject.ext.dependencies.design
+    compile rootProject.ext.dependencies.recyclerview
+    compile rootProject.ext.dependencies.cardview
+    compile rootProject.ext.dependencies.multidex
+    /*rx*/
+    compile rootProject.ext.dependencies.rxjava
+    compile rootProject.ext.dependencies.rxandroid
+    /*gson解析*/
+    compile rootProject.ext.dependencies.gson
+    /* Android超强util库-- 算不上超强,跟apache-commons相比差太远*/
+    compile 'com.blankj:utilcode:1.3.6'
+    /*图片加载*/
+    provided 'com.github.bumptech.glide:glide:4.0.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0'
+//    compile 'com.github.bumptech.glide:okhttp3-integration:4.0.0@aar' //替换glide底层网络框架//图片列表加载在切换服务器ip后的时候，有时造成OkHttp Dispatcher(1402)java.util.NoSuchElementException。okhttp3.internal.connection.RouteSelector.next(RouteSelector.java:78)暂时取消使用
+
+    /*数据库*/
+    compile 'org.litepal.android:core:1.5.1'
+    /*超强的recyclerview适配器*/
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.18'
+    /*butterknife*/
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
+    compile 'com.jakewharton:butterknife:8.6.0'
+    /*leakcanary 内存泄漏检测通知*/
+    /*debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.1'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'*/
+    /*网络-retrofit*/
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.4.2'
+    /*dragger2*/
+    compile 'com.google.dagger:dagger:2.0.2'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.0.2'
+    provided 'org.glassfish:javax.annotation:10.0-b28'
+    //jessyan牛人的一行代码监听上传下载进度，看源码重点是拦截器和订阅模式666
+    compile 'me.jessyan:progressmanager:1.5.0'
+    //jessyan牛人的动态改变baseurl，看源码重点是header和拦截器
+    compile 'me.jessyan:retrofit-url-manager:1.1.0'
+    //状态栏适配解决（当然设置状态栏深度看rom和sdk版本）
+    compile 'com.yanzhenjie:sofia:1.0.5'
+}

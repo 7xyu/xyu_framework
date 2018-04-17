@@ -1,0 +1,36 @@
+ext {
+    plugins = [
+            application: 'com.android.application',
+            library    : 'com.android.library',
+//            maven      : 'com.github.dcendents.android-maven',
+//            bintray    : 'com.jfrog.bintray'
+    ]
+
+    android = [
+            compileSdkVersion: ANDROID_COMPILE_SDK_VERSION as int,
+            buildToolsVersion: ANDROID_BUILD_TOOLS_VERSION ,
+            minSdkVersion    : ANDROID_BUILD_MIN_SDK_VERSION,
+            targetSdkVersion : ANDROID_BUILD_TARGET_SDK_VERSION,
+    ]
+
+    support = "25.3.1"
+    dependencies = [
+            /* 单元测试*/
+            junit       : 'junit:junit:4.12',
+            espresso    : 'com.android.support.test.espresso:espresso-core:2.2.2',
+            /* support库*/
+            appcompat   : 'com.android.support:appcompat-v7:' + support,
+            design      : 'com.android.support:design:' + support,
+            recyclerview: 'com.android.support:recyclerview-v7:' + support,
+            cardview    : 'com.android.support:cardview-v7:' + support,
+            /* android分dex，避免方法数超过限制异常*/
+            multidex    : 'com.android.support:multidex:1.0.1',
+            /* rx*/
+            rxjava      : 'io.reactivex:rxjava:1.1.5',
+            rxandroid   : 'io.reactivex:rxandroid:1.2.0',
+            /* gson解析json数据*/
+            gson        : 'com.google.code.gson:gson:2.8.1',
+
+    ]
+
+}

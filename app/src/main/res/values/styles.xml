@@ -1,0 +1,56 @@
+<resources>
+    <!--APP主题样式style-->
+    <!-- Base application theme. -->
+    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="elevation">0dp</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:editTextStyle">@style/EditTextStyle</item>
+        <item name="android:editTextBackground">@null</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    <!--//ActionBarDrawerToggle设置颜色-->
+    <!--<item name="colorControlNormal">@android:color/white</item>-->
+    <style name="AppTheme" parent="BaseTheme"/>
+    <style name="Transparent" parent="AppTheme">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+
+        <!--<item name="android:windowAnimationStyle">@+android:style/Animation.Translucent</item>-->
+    </style>
+    <!--<style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>-->
+    <!--系统控件style-->
+
+    <style name="EditTextStyle" parent="@android:style/Widget.EditText">
+        <item name="android:editTextBackground">@null</item>
+    </style>
+
+    <!--其他控件style-->
+
+    <style name="PswdEditText" parent="android:Widget.EditText">
+        <item name="android:digits">_0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</item>
+        <item name="android:inputType">textPassword</item>
+    </style>
+    <!--<item name="android:paddingTop">@dimen/toolbar_padding_top</item>-->
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Dialog" parent="android:style/Theme.Dialog">
+        <item name="android:background">#00000000</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
+</resources>
