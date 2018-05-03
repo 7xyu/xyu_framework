@@ -17,6 +17,6 @@ Copy
 Step 2. Add the dependency
 
 	dependencies {
-	        compile 'com.github.7xyu:xyu_framework:v1.0.1'
+	        compile 'com.github.7xyu:xyu_framework:v1.0.2'
 	}
 
